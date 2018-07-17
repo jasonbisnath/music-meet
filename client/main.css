@@ -15,20 +15,23 @@ body {
   margin: 0;
  
   font-size: 14px;
-}
- 
+  display: grid;
+  grid-template-columns: 200px auto;
+  grid-template-rows: 100%;
+} 
 .container {
   max-width: 200px;
-  margin: 1 auto;
+  margin: 1;
   min-height: 100%;
-  background: white;
-}
+  background: linear-gradient;
+}  
 
 .container2 {
-  max-width: 200px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 1;
   min-height: 100%;
-  background: white;
+  background: linear-gradient;
+  text-align: center;
 }
 
 header {
@@ -37,7 +40,7 @@ header {
   padding: 20px 15px 15px 15px;
   position: relative;
   text-align: center;
-  color: blue;
+  color: white;
   text-shadow: silver 2px 3px;
 }
  
@@ -66,7 +69,7 @@ form {
   position: relative;
 }
  
-.new-task input {
+.new-genre input {
   box-sizing: border-box;
   padding: 10px 0;
   background: transparent;
@@ -76,14 +79,14 @@ form {
   font-size: 1em;
 }
  
-.new-task input:focus{
+.new-genre input:focus{
   outline: 0;
 }
  
 ul {
   margin: 0;
   padding: 0;
-  background: white;
+  background: linear-gradient;
 }
  
 .delete {
@@ -95,11 +98,17 @@ ul {
   position: relative;
 }
  
+p {
+  color: white;
+  text-shadow: 2px 3px black;
+}
+
 li {
   position: relative;
   list-style: none;
   padding: 15px;
-  border-bottom: #eee solid 1px;
+  border-bottom: orange solid 1px;
+  color: orange;
 }
  
 li .text {
@@ -137,7 +146,7 @@ header .hide-completed {
     clear: both;
   }
  
-  .new-task input {
+  .new-genre input {
     padding-bottom: 5px;
   }
 }

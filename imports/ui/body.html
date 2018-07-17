@@ -5,18 +5,29 @@
     </header>
  
     <ul>
-      {{#each tasks}}
-        {{> task}}
+      {{#each genres}}
+        {{> genre}}
       {{/each}}
     </ul>
   </div> 
   <div class="container2">
     <header>
-      <h2>MUSICCONNECT"</h2>
+      <h2>MUSIC-MEET</h2>
     </header>
+
+    <ul>
+      {{#each users}}
+        {{> user}}
+      {{/each}}
+    </ul>
   </div>
 </body>
  
-<template name="task">
-  <li>{{text}}</li>
+<template name="genre">
+  <li><a href="#" class="">{{text}}</a></li>
+</template>
+
+<template name="user">
+  <p><strong>{{name}}</strong></p>
+  <li>{{genre}}, {{instrument}}</li>
 </template>
