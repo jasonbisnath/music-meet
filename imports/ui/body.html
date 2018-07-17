@@ -5,9 +5,12 @@
     </header>
  
     <ul>
-      {{#each genres}}
-        {{> genre}}
-      {{/each}}
+      <li><button type="button" class="hiphop-button">Rap</button></li>
+      <li><button type="button" class="pop-button">Pop</button></li>
+      <li><button type="button" class="country-button">Country</button></li>
+      <li><button type="button" class="rock-button">Rock</button></li>
+      <li><button type="button" class="jazz-button">Jazz</button></li>
+      <li><button type="button" class="classical-button">Classical</button></li>
     </ul>
   </div> 
   <div class="container2">
@@ -22,12 +25,10 @@
     </ul>
   </div>
 </body>
- 
-<template name="genre">
-  <li><a href="#" class="">{{text}}</a></li>
-</template>
 
 <template name="user">
+  <div class="{{genre}}">
   <p><strong>{{name}}</strong></p>
   <li>{{genre}}, {{instrument}}</li>
+</div>
 </template>
