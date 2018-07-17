@@ -1,0 +1,22 @@
+<body>
+  <div class="container">
+    <header>
+      <h1>GENRES</h1>
+    </header>
+ 
+    <ul>
+      {{#each tasks}}
+        {{> task}}
+      {{/each}}
+    </ul>
+  </div> 
+  <div class="container2">
+    <header>
+      <h2>MUSICCONNECT"</h2>
+    </header>
+  </div>
+</body>
+ 
+<template name="task">
+  <li>{{text}}</li>
+</template>
