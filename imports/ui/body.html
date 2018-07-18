@@ -3,9 +3,9 @@
     <header>
       <h1>GENRES</h1>
     </header>
- 
+
     <ul>
-      <li><button type="button" class="hiphop-button">Rap</button></li>
+      <li><button type="button" class="rap-button">Rap</button></li>
       <li><button type="button" class="pop-button">Pop</button></li>
       <li><button type="button" class="country-button">Country</button></li>
       <li><button type="button" class="rock-button">Rock</button></li>
@@ -18,6 +18,25 @@
       <h2>MUSIC-MEET</h2>
     </header>
 
+    <form class="new-user">
+      <input type="text" class="name" placeholder="Type your name here" />
+      <input type="text" class="contact" placeholder="Type your contact information here" />
+      
+    <div class="genres">
+      <input type="checkbox" class="rap" name="genre" value="Rap" checked>Rap<br>
+      <input type="checkbox" class="pop" name="genre" value="Pop">Pop<br>
+      <input type="checkbox" class="country" name="genre" value="Country">Country<br>
+      <input type="checkbox" class="rock" name="genre" value="Rock">Rock<br>
+      <input type="checkbox" class="jazz" name="genre" value="Jazz">Jazz<br>
+      <input type="checkbox" class="classical" name="genre" value="Classical">Classical<br>
+    </div>
+     
+
+      <input type="text" class="instrument" placeholder="Type your instrument here" />
+      <input type="text" class="links" placeholder="Link your music here" />
+      <input type="submit">
+    </form>
+ 
     <ul>
       {{#each users}}
         {{> user}}
@@ -27,8 +46,10 @@
 </body>
 
 <template name="user">
-  <div class="{{genre}}">
-  <p><strong>{{name}}</strong></p>
-  <li>{{genre}}, {{instrument}}</li>
+  <div class="user-container">
+    <div class="{{#if rap}} Rap {{/if}} {{#if pop}} Pop {{/if}} {{#if country}} Country {{/if}} {{#if rock}} Rock {{/if}} {{#if jazz}} Jazz {{/if}} {{#if classical}} Classical {{/if}}">
+      <p><strong>{{name}}</strong> {{contact}}</p>
+      <li>{{#if rap}} Rap,{{/if}} {{#if pop}} Pop,{{/if}} {{#if country}} Country,{{/if}} {{#if rock}} Rock,{{/if}} {{#if jazz}} Jazz,{{/if}} {{#if classical}} Classical,{{/if}} {{instrument}}, {{links}} </li>
+    </div>
 </div>
 </template>

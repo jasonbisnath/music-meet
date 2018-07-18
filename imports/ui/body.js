@@ -1,54 +1,54 @@
 import { Template } from 'meteor/templating';
  
+import { Users } from '../api/users.js';
+ 
 import './body.html';
 
-var show = "everything";
-window.onload = function() {
-	document.querySelector('.hiphop-button').addEventListener('click', function() {
-		if (show === "everything") {
-			document.querySelector('.Pop').style.display = "none";
-			document.querySelector('.Country').style.display = "none";
-			document.querySelector('.Rock').style.display = "none";
-			document.querySelector('.Classical').style.display = "none";
-			document.querySelector('.Jazz').style.display = "none";
-			show = "hiphop";
-		} else {
-			console.log('else');
-			document.querySelector('.Pop').style.display = "inline";
-			document.querySelector('.Country').style.display = "inline";
-			document.querySelector('.Rock').style.display = "inline";
-			document.querySelector('.Classical').style.display = "inline";
-			document.querySelector('.Jazz').style.display = "inline";
-			show = "everything";
-		}
-	});	
-	document.querySelector('.pop-button').addEventListener('click', function() {
-		if (show === "everything") {
-			document.querySelector('.Rap').style.display = "none";
-			document.querySelector('.Country').style.display = "none";
-			document.querySelector('.Rock').style.display = "none";
-			document.querySelector('.Classical').style.display = "none";
-			document.querySelector('.Jazz').style.display = "none";
-			show = "pop";
-		} else {
-			console.log('else');
-			document.querySelector('.Rap').style.display = "inline";
-			document.querySelector('.Country').style.display = "inline";
-			document.querySelector('.Rock').style.display = "inline";
-			document.querySelector('.Classical').style.display = "inline";
-			document.querySelector('.Jazz').style.display = "inline";
-			show = "everything";
-		}	
-	});
-};
 
+function toggleVisible(filter, show, template) {
+	var array = ["Rap", "Pop", "Country", "Rock", "Jazz", "Classical"];
+	for (var genre of array) {
+		if (genre !== filter) {
+			if (show) {
+				for (var thing of template.findAll('.' + genre)) {
+					thing.style.display = "inline";
+				}
+			} else {
+				for (var thing of template.findAll('.' + genre)) {
+					thing.style.display = "none";
+				}
+			}
+		}
+	}
+}
+
+ 
 Template.body.helpers({
-  users: [
-    { name: 'JOE', genre: 'Pop', instrument: 'Guitar', custom: "blah"},
-    { name: 'BOB', genre: 'Country' },
-    { name: 'IDK', genre: 'Rap'},
-    { name: 'IDKK', genre: 'Classical'},
-    { name: 'veronica', genre: 'Rock'},
-    { name: 'Vithya', genre: 'Jazz'}
-  ]
+  users() {
+    return Users.find({});
+  }
+});
+
+Template.body.events({
+	'submit .new-user'(event, template) {
+		event.preventDefault();
+		Users.insert({
+			name: template.find('.name').value,
+			contact: template.find('.contact').value,
+			rap: template.find('.rap').checked,
+			pop: template.find('.pop').checked,
+			country: template.find('.country').checked,
+			rock: template.find('.rock').checked,
+			jazz: template.find('.jazz').checked,
+			classical: template.find('.classical').checked,
+			instrument: template.find('.instrument').value,
+			links: template.find('.links').value,
+		});
+	},
+
+	'click .rap-button'(event, template) {
+		event.preventDefault();
+		console.log('hi');
+		toggleVisible("Rap", false, template);
+	},
 });
