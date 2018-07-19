@@ -1,19 +1,16 @@
 /* CSS declarations go here */
 body {
   font-family: sans-serif;
-  background-color: #315481;
-  background-image: linear-gradient(to bottom, #315481, #918e82 100%);
+  background-color: #00faff;
+  background-image: linear-gradient(to bottom, #5c59c1, #7fb3e0 100%);
   background-attachment: fixed;
- 
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
   right: 0;
- 
   padding: 0;
   margin: 0;
- 
   font-size: 14px;
   display: grid;
   grid-template-columns: 200px auto;
@@ -34,6 +31,9 @@ body {
   text-align: center;
 }
 
+.user-container {
+  background-color: lavender;
+}
 header {
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
@@ -41,7 +41,6 @@ header {
   position: relative;
   text-align: center;
   color: white;
-  text-shadow: silver 2px 3px;
 }
  
 #login-buttons {
@@ -51,18 +50,22 @@ header {
 h1 {
   font-size: 1.5em;
   margin: 0;
+  margin-top: 11px;
   margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
+  text-shadow: silver 2px 3px;
 }
 
 h2 {
   font-size: 1.5em;
   margin: 0;
-  margin-bottom: 10px;
   display: inline-block;
   margin-right: 1em;
+  color: black;
+  text-shadow: silver 2px 3px;
 }
+
 form {
   margin-top: 10px;
   margin-bottom: -10px;
@@ -99,16 +102,21 @@ ul {
 }
  
 p {
-  color: white;
-  text-shadow: 2px 3px black;
+  color: black;
+  text-shadow: 2px 1px silver;
+}
+
+a {
+  color: #589ffc;
 }
 
 li {
   position: relative;
   list-style: none;
-  padding: 15px;
+  padding: 5px;
   border-bottom: orange solid 1px;
-  color: orange;
+  color: #6047ad;
+  text-align: center;
 }
  
 li .text {
@@ -136,9 +144,35 @@ header .hide-completed {
   margin-left: 5px;
 }
 
-button {
-  background-color: red;
+.new-user {
+  margin-right: 75%;
+  border-radius: 15px;
+  background-color: #b186c9;
+  padding: 10px;
+}
+
+.login-link-and-dropdown-list {
+  font-size: 20px;
+  margin-left: 80%;
+  background-color: #b186c9;
+  border-radius: 10px;
+  padding: 5px;
+  margin-top: -10px;
+  display: inline-block;
+  margin-right: 1em;
+  max-width: 75px;
+}
+
+.login-link-text {
   color: white;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border-color: black;
+  width: 100%;
+  font-size: 25px;
 } 
 
 @media (max-width: 600px) {

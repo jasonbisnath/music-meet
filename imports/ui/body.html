@@ -2,22 +2,26 @@
   <div class="container">
     <header>
       <h1>GENRES</h1>
+
     </header>
 
     <ul>
-      <li><button type="button" class="rap-button">Rap</button></li>
-      <li><button type="button" class="pop-button">Pop</button></li>
-      <li><button type="button" class="country-button">Country</button></li>
-      <li><button type="button" class="rock-button">Rock</button></li>
-      <li><button type="button" class="jazz-button">Jazz</button></li>
-      <li><button type="button" class="classical-button">Classical</button></li>
+      <li><button type="button" class="rap-button">RAP</button></li>
+      <li><button type="button" class="pop-button">POP</button></li>
+      <li><button type="button" class="country-button">COUNTRY</button></li>
+      <li><button type="button" class="rock-button">ROCK</button></li>
+      <li><button type="button" class="jazz-button">JAZZ</button></li>
+      <li><button type="button" class="classical-button">CLASSICAL</button></li>
     </ul>
   </div> 
   <div class="container2">
     <header>
       <h2>MUSIC-MEET</h2>
+      {{> loginButtons}}
     </header>
 
+    
+    {{#if currentUser}}
     <form class="new-user">
       <input type="text" class="name" placeholder="Type your name here" />
       <input type="text" class="contact" placeholder="Type your contact information here" />
@@ -36,20 +40,17 @@
       <input type="text" class="links" placeholder="Link your music here" />
       <input type="submit">
     </form>
- 
+    {{/if}}
     <ul>
-      {{#each users}}
+      {{#each artists}}
         {{> user}}
       {{/each}}
-    </ul>
+    </ul> 
   </div>
 </body>
-
 <template name="user">
-  <div class="user-container">
-    <div class="{{#if rap}} Rap {{/if}} {{#if pop}} Pop {{/if}} {{#if country}} Country {{/if}} {{#if rock}} Rock {{/if}} {{#if jazz}} Jazz {{/if}} {{#if classical}} Classical {{/if}}">
+    <div class="user-container {{#if rap}} Rap {{/if}} {{#if pop}} Pop {{/if}} {{#if country}} Country {{/if}} {{#if rock}} Rock {{/if}} {{#if jazz}} Jazz {{/if}} {{#if classical}} Classical {{/if}}">
       <p><strong>{{name}}</strong> {{contact}}</p>
-      <li>{{#if rap}} Rap,{{/if}} {{#if pop}} Pop,{{/if}} {{#if country}} Country,{{/if}} {{#if rock}} Rock,{{/if}} {{#if jazz}} Jazz,{{/if}} {{#if classical}} Classical,{{/if}} {{instrument}}, {{links}} </li>
+      <li>{{#if rap}} Rap,{{/if}} {{#if pop}} Pop,{{/if}} {{#if country}} Country,{{/if}} {{#if rock}} Rock,{{/if}} {{#if jazz}} Jazz,{{/if}} {{#if classical}} Classical,{{/if}} {{instrument}}, <a href="{{links}}">{{links}}</a></li>
     </div>
-</div>
 </template>
