@@ -1,7 +1,7 @@
 /* CSS declarations go here */
 body {
   font-family: sans-serif;
-  background-color: #00faff;
+  background-color: indigo;
   background-image: linear-gradient(to bottom, #5c59c1, #7fb3e0 100%);
   background-attachment: fixed;
   position: absolute;
@@ -32,8 +32,14 @@ body {
 }
 
 .user-container {
-  background-color: lavender;
+  background-color: rgb(214, 235, 243);
+  border-radius: 15px;
+  margin: 15px;
+/*  display: grid;*/
+  /*grid-template-columns: 50% 50%;*/
+  /*max-width: 50%;*/
 }
+
 header {
   background: #d2edf4;
   background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
@@ -71,7 +77,19 @@ form {
   margin-bottom: -10px;
   position: relative;
 }
- 
+
+.genres {
+  text-align: left;
+}
+
+/*ul.genres li {
+  display: inline;
+}*/
+
+.nameContact {
+  text-shadow: 2px 1px silver;
+}
+
 .new-genre input {
   box-sizing: border-box;
   padding: 10px 0;
@@ -91,7 +109,12 @@ ul {
   padding: 0;
   background: linear-gradient;
 }
- 
+
+.artistLayout {
+  display: grid;
+  grid-template-columns: 25% 25% 25% 25%;
+}
+
 .delete {
   float: right;
   font-weight: bold;
@@ -103,7 +126,6 @@ ul {
  
 p {
   color: black;
-  text-shadow: 2px 1px silver;
 }
 
 a {
@@ -114,7 +136,7 @@ li {
   position: relative;
   list-style: none;
   padding: 5px;
-  border-bottom: orange solid 1px;
+  /*border-bottom: orange solid 1px;*/
   color: #6047ad;
   text-align: center;
 }
@@ -149,6 +171,7 @@ header .hide-completed {
   border-radius: 15px;
   background-color: #b186c9;
   padding: 10px;
+
 }
 
 .login-link-and-dropdown-list {

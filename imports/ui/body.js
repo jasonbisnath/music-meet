@@ -7,8 +7,6 @@ import './body.html';
 import { Accounts } from 'meteor/accounts-base';
 
 // import './artists.js';
-
- 
 Accounts.ui.config({
   passwordSignupFields: 'USERNAME_ONLY',
 });
@@ -24,7 +22,7 @@ function toggleVisible(filter, show, template) {
 		}
 	}
 
-	var style = isShowing ? "none" : "inline";
+	var style = isShowing ? "none" : "block";
 
 	for (var divs of divsToChange) {
 		divs.style.display = style;
@@ -52,6 +50,7 @@ Template.body.events({
 			jazz: template.find('.jazz').checked,
 			classical: template.find('.classical').checked,
 			instrument: template.find('.instrument').value,
+			bio: template.find('.bio').value,
 			links: template.find('.links').value,
 		});
 	},

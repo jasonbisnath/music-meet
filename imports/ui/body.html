@@ -23,8 +23,8 @@
     
     {{#if currentUser}}
     <form class="new-user">
-      <input type="text" class="name" placeholder="Type your name here" />
-      <input type="text" class="contact" placeholder="Type your contact information here" />
+      <input type="text" class="name" placeholder="Type your name" />
+      <input type="text" class="contact" placeholder="Type your contact info." />
       
     <div class="genres">
       <input type="checkbox" class="rap" name="genre" value="Rap" checked>Rap<br>
@@ -36,12 +36,14 @@
     </div>
      
 
-      <input type="text" class="instrument" placeholder="Type your instrument here" />
-      <input type="text" class="links" placeholder="Link your music here" />
+      <input type="text" class="instrument" placeholder="Type your instrument" />
+      <input type="text" class="links" placeholder="Link your music" />
+      <input type="text" class="bio" name="bio" placeholder="Tell us about yourself" />
       <input type="submit">
     </form>
     {{/if}}
-    <ul>
+
+    <ul class="artistLayout">
       {{#each artists}}
         {{> user}}
       {{/each}}
@@ -50,7 +52,8 @@
 </body>
 <template name="user">
     <div class="user-container {{#if rap}} Rap {{/if}} {{#if pop}} Pop {{/if}} {{#if country}} Country {{/if}} {{#if rock}} Rock {{/if}} {{#if jazz}} Jazz {{/if}} {{#if classical}} Classical {{/if}}">
-      <p><strong>{{name}}</strong> {{contact}}</p>
+      <p class="nameContact"><strong>{{name}}</strong> {{contact}}</p>
+      <p>{{bio}}</p>
       <li>{{#if rap}} Rap,{{/if}} {{#if pop}} Pop,{{/if}} {{#if country}} Country,{{/if}} {{#if rock}} Rock,{{/if}} {{#if jazz}} Jazz,{{/if}} {{#if classical}} Classical,{{/if}} {{instrument}}, <a href="{{links}}">{{links}}</a></li>
     </div>
 </template>
